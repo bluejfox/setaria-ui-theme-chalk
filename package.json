@@ -1,6 +1,6 @@
 {
   "name": "setaria-ui-theme-chalk",
-  "version": "1.3.8",
+  "version": "1.3.9",
   "description": "Setaria-UI component chalk theme.",
   "main": "lib/index.css",
   "style": "lib/index.css",
