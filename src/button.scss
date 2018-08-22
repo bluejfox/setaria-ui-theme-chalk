@@ -4,6 +4,10 @@
 @import "mixins/mixins";
 @import "mixins/utils";
 
+@include b(button-anchor) {
+  text-decoration: none;
+}
+
 @include b(button) {
   display: inline-block;
   line-height: 1;
@@ -21,7 +25,7 @@
   transition: .1s;
   font-weight: $--button-font-weight;
   @include utils-user-select(none);
-  & + .el-button {
+  & + & {
     margin-left: 10px;
   }
 
@@ -49,7 +53,7 @@
       margin-left: 5px;
     }
   }
-
+  
   @include when(plain) {
     &:hover,
     &:focus {
