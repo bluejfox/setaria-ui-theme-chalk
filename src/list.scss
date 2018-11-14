@@ -29,8 +29,8 @@
   
   .el-list__header,
   .el-list__footer {
-    padding-top: $--list-medium-padding-top;
-    padding-bottom: $--list-medium-padding-bottom;
+    padding-top: $--list-large-padding-top;
+    padding-bottom: $--list-large-padding-bottom;
   }
   
   @include when(bordered) {
@@ -40,44 +40,42 @@
     .el-list__header,
     .el-list-item,
     .el-list__footer {
-      padding-left: $--list-medium-padding-left;
-      padding-right: $--list-medium-padding-right;
       border-bottom: 1px solid $--border-color-light;
     }
-    
-    &.el-list--large {
-      .el-list-item,
-      .el-list__header,
-      .el-list__footer {
-        padding: $--list-large-padding-top $--list-large-padding-right $--list-large-padding-bottom $--list-large-padding-left;
-      }
+  }
+  
+  .el-list__header,
+  .el-list-item,
+  .el-list__footer {
+    padding-left: $--list-large-padding-left;
+    padding-right: $--list-large-padding-right;
+  }
+  
+  &.el-list--medium {
+    .el-list-item,
+    .el-list__header,
+    .el-list__footer {
+      padding: $--list-medium-padding-top $--list-medium-padding-right $--list-medium-padding-bottom $--list-medium-padding-left;
     }
-    
-    &.el-list--small {
-      .el-list-item,
-      .el-list__header,
-      .el-list__footer {
-        padding: $--list-small-padding-top $--list-small-padding-right $--list-small-padding-bottom $--list-small-padding-left;
-      }
+  }
+  
+  &.el-list--small {
+    .el-list-item,
+    .el-list__header,
+    .el-list__footer {
+      padding: $--list-small-padding-top $--list-small-padding-right $--list-small-padding-bottom $--list-small-padding-left;
     }
   }
   
   @include b(list-item) {
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
     align-items: center;
-    padding-top: $--list-medium-padding-top;
-    padding-bottom: $--list-medium-padding-bottom;
+    display: flex;
+    padding-top: $--list-large-padding-top;
+    padding-bottom: $--list-large-padding-bottom;
     
     @include b(list-item-meta) {
-      -webkit-box-align: start;
-      -webkit-align-items: flex-start;
-      -ms-flex-align: start;
       align-items: flex-start;
-      -webkit-box-flex: 1;
-      -webkit-flex: 1;
-      -ms-flex: 1;
+      display: flex;
       flex: 1;
       font-size: 0;
       
@@ -186,8 +184,8 @@
     -webkit-align-items: center;
     -ms-flex-align: center;
     align-items: center;
-    padding-top: $--list-medium-padding-top;
-    padding-bottom: $--list-medium-padding-bottom;
+    padding-top: $--list-large-padding-top;
+    padding-bottom: $--list-large-padding-bottom;
     text-align: center;
   }
   
@@ -205,12 +203,18 @@
       flex: 1;
     }
   }
-}
-
-.el-list-item,
-.el-list-item-meta {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+  
+  @include when('grid') {
+    .el-list-item {
+      border-bottom: none;
+      padding-top: 0;
+      padding-bottom: 0;
+      margin-bottom: 16px;
+      
+      .el-list-item-content {
+        display: block;
+        max-width: 100%;
+      }
+    }
+  }
 }
